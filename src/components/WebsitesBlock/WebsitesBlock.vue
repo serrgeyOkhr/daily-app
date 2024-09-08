@@ -18,8 +18,8 @@ defineProps<{
 
 const getStaticImage = (fileName?: string) => {
   // todo: return default svg
-  return `/src/assets/${fileName}.png`;
-}
+  return `./${fileName}.png`;
+};
 const onClick = (url: string) => {
   window.open(url);
 }
