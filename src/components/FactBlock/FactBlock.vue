@@ -1,5 +1,5 @@
 <template>
-  <Panel class="fact-block" header="Random useless fact" toggleable>
+  <Panel class="fact-block" header="Random useless fact" toggleable collapsed>
     <Skeleton v-if="loading" />
     <div v-else>{{ randomFact }}</div>
   </Panel>
@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import useAPI from "@/hooks/useAPI";
-const RANDOM_FACT_URL = "https://uselessfacts.jsph.pl/api/v2/facts/random";
+import { RANDOM_FACT_URL } from "@/config";
 
 const { API, loading } = useAPI();
 
@@ -26,6 +26,6 @@ getRandomFact();
 
 <style scoped lang="scss">
 .fact-block {
-  width: 300px;
+  max-width: 300px;
 }
 </style>

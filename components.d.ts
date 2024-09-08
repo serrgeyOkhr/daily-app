@@ -7,12 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Card: typeof import('primevue/card')['default']
     FactBlock: typeof import('./src/components/FactBlock/FactBlock.vue')['default']
     Image: typeof import('primevue/image')['default']
     Panel: typeof import('primevue/panel')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Skeleton: typeof import('primevue/skeleton')['default']
+    ToggleButton: typeof import('primevue/togglebutton')['default']
     WebsitesBlock: typeof import('./src/components/WebsitesBlock/WebsitesBlock.vue')['default']
   }
 }
