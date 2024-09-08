@@ -10,7 +10,6 @@ export default function useAPI() {
       try {
         loading.value = true;
         const r = await fetch(url);
-        console.log('r', r);
         status.value = r.status;
         if (!r.ok) {
           throw new Error(`Response status: ${r.status}`);
@@ -27,10 +26,7 @@ export default function useAPI() {
       status,
       OK,
       get,
-    }
-  };
-  const getData = (url: string) => {
-    return fetch(url);
+    };
   };
 
   return { loading, API: API() };

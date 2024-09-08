@@ -1,29 +1,50 @@
 <template>
-  <div class="website-block__wrapper">
-    <div v-for="site in sites" class="website-block" :key="site.name" @click="onClick(site.url)">
-      <Image class="website-block__image" :src="getStaticImage(site.image)" />
-      <p>{{ site.name }}</p>
+  <div class="d-flex __column">
+    <div class="website-block__title-wrapper d-flex">
+      <h3 v-if="title" class="website-block__title capitalize">
+        {{ title }}
+      </h3>
+      <span v-if="toggleable" @click="showBlock = !showBlock">{{
+        showBlock ? "hide" : "show"
+      }}</span>
+    </div>
+    <div v-show="showBlock" class="website-block__wrapper">
+      <Card v-for="site in sites" class="website-block" :key="site.name" @click="onClick(site.url)">
+        <template #header>
+          <Image class="website-block__image" :src="getStaticImageUrl(site.image)" />
+        </template>
+        <template #footer>
+          <p class="mt-2 capitalize">{{ site.name }}</p>
+        </template>
+      </Card>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  sites: {
-    name: string;
-    url: string;
-    image?: string;
-  }[];
-}>();
+import { ref } from "vue";
+import type { IWebsite } from "@/const";
 
-const getStaticImage = (fileName?: string) => {
-  // todo: return default svg
-  return `./${fileName}.png`;
-};
-const onClick = (url: string) => {
-  window.open(url);
+interface IWebsitesBlockProps {
+  title?: string;
+  sites: IWebsite[];
+  toggleable: boolean;
+  collapsed: boolean;
 }
 
+const { sites, title, toggleable = false, collapsed = false } = defineProps<IWebsitesBlockProps>();
+
+const showBlock = ref(!(toggleable && collapsed));
+
+const getStaticImageUrl = (fileName?: string) => {
+  if (!fileName) return "./default.svg";
+  if (fileName.split(".").length > 1) return `./${fileName}`;
+  return `./${fileName}.png`;
+};
+
+const onClick = (url: string) => {
+  window.open(url);
+};
 </script>
 
 <style scoped lang="scss">
@@ -31,19 +52,26 @@ const onClick = (url: string) => {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  border: 1px solid red;
   border-radius: 8px;
+  width: 100px;
   padding: 3px;
 
   &__wrapper {
-    object-fit: contain;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+  }
+  &__title-wrapper {
+    align-items: center;
+    justify-content: space-between;
   }
   &__image {
     display: flex;
   }
+}
+:deep(.p-card-body) {
+  padding: 10px;
 }
 </style>
