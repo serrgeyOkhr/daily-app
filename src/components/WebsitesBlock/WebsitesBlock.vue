@@ -4,9 +4,9 @@
       <h3 v-if="title" class="website-block__title capitalize">
         {{ title }}
       </h3>
-      <span v-if="toggleable" @click="showBlock = !showBlock">{{
-        showBlock ? "hide" : "show"
-      }}</span>
+      <Button v-if="toggleable" text plain @click="showBlock = !showBlock">
+        {{ showBlock ? "hide" : "show" }}
+      </Button>
     </div>
     <div v-show="showBlock" class="website-block__wrapper">
       <Card v-for="site in sites" class="website-block" :key="site.name" @click="onClick(site.url)">
