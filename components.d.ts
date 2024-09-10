@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Button: typeof import('primevue/button')['default']
     Card: typeof import('primevue/card')['default']
     FactBlock: typeof import('./src/components/FactBlock/FactBlock.vue')['default']
     Image: typeof import('primevue/image')['default']

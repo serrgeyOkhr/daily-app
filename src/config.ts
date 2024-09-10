@@ -13,6 +13,11 @@ export const generalWebsites: IWebsite[] = [
     url: "https://movies2watch.tv/",
     image: "movies2watch",
   },
+  {
+    name: "Music",
+    url: "https://music.yandex.ru/home/",
+    image: "yandex_music.svg",
+  },
 ];
 export const workWebsites: IWebsite[] = [
   {
