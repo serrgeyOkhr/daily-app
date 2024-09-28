@@ -7,15 +7,23 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AstroImage: typeof import('./src/components/AstroImage/AstroImage.vue')['default']
+    BasePage: typeof import('./src/components/BasePage/BasePage.vue')['default']
     Button: typeof import('primevue/button')['default']
     Card: typeof import('primevue/card')['default']
     FactBlock: typeof import('./src/components/FactBlock/FactBlock.vue')['default']
+    Fieldset: typeof import('primevue/fieldset')['default']
     Image: typeof import('primevue/image')['default']
+    Menubar: typeof import('primevue/menubar')['default']
+    NavBar: typeof import('./src/components/NavBar/NavBar.vue')['default']
     Panel: typeof import('primevue/panel')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Skeleton: typeof import('primevue/skeleton')['default']
     ToggleButton: typeof import('primevue/togglebutton')['default']
     WebsitesBlock: typeof import('./src/components/WebsitesBlock/WebsitesBlock.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    Ripple: typeof import('primevue/ripple')['default']
   }
 }
