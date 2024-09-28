@@ -1,6 +1,8 @@
 import type { IWebsite } from "@/const";
+const NASA_API_KEY = __APP_ENV__.NASA_API_KEY ?? "DEMO_KEY";
 
 export const RANDOM_FACT_URL = "https://uselessfacts.jsph.pl/api/v2/facts/random";
+export const NASA_IMAGE_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
 
 export const generalWebsites: IWebsite[] = [
   {
@@ -28,10 +30,16 @@ export const workWebsites: IWebsite[] = [
   {
     name: "Jira",
     url: "https://scrile.atlassian.net/jira/software/c/projects/CO/boards/83",
+    image: "jira",
   },
   {
     name: "gitlab",
     url: "https://gitlab.com/webvideo/",
     image: "gitlab.svg",
+  },
+  {
+    name: "Retra",
+    url: "https://miro.com/app/board/o9J_lhIWCUw=/",
+    image: "miro.svg",
   },
 ];
