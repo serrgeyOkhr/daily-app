@@ -20,6 +20,11 @@ export const generalWebsites: IWebsite[] = [
     url: "https://music.yandex.ru/home/",
     image: "yandex_music.svg",
   },
+  {
+    name: "Twitch",
+    url: "https://www.twitch.tv/",
+    image: "twitch.svg",
+  },
 ];
 export const workWebsites: IWebsite[] = [
   {
@@ -31,6 +36,11 @@ export const workWebsites: IWebsite[] = [
     name: "Jira",
     url: "https://scrile.atlassian.net/jira/software/c/projects/CO/boards/83",
     image: "jira",
+  },
+  {
+    name: "Wiki",
+    url: "https://scrile.atlassian.net/wiki/spaces/ID/pages/733708301/CONNECT",
+    image: "jira_wiki",
   },
   {
     name: "gitlab",
